@@ -1538,7 +1538,12 @@
         }
 
         this.format.tokens.forEach(function (token) {
-          var type = tokenToType(token);
+          var type;
+          if (token == 'am/pm' || token == 'hour') {
+              type = token;
+          } else {
+              type = tokenToType(token);
+          }
           var cell = document.createElement('div');
           var cellBody = document.createElement('div');
           var list = document.createElement('ul');
