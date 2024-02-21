@@ -907,6 +907,12 @@
       var token = format[type];
 
       switch (token.charAt(0)) {
+        case 'am/pm':
+              data.max = 1;
+              data.min = 0;
+        case 'hour':
+            data.max = 12;
+            data.min = 1;
         case 'Y':
           if (isNumber(value)) {
             date.setFullYear(token.length === 2 ? 2000 + value : value);
@@ -1495,7 +1501,7 @@
         this.picker = picker;
         this.grid = grid;
         this.cell = null;
-        this.format = parseFormat(options.format);
+        this.format = options.format == 'ampm' ? { tokens: ['hour', 'am/pm'] } : parseFormat(options.format);
         var initialValue = this.getValue();
         var date = this.parseDate(options.date || initialValue);
         this.date = date;
