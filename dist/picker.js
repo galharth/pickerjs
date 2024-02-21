@@ -907,12 +907,6 @@
       var token = format[type];
 
       switch (token.charAt(0)) {
-        case 'am/pm':
-              data.max = 1;
-              data.min = 0;
-        case 'hour':
-            data.max = 12;
-            data.min = 1;
         case 'Y':
           if (isNumber(value)) {
             date.setFullYear(token.length === 2 ? 2000 + value : value);
@@ -1547,7 +1541,32 @@
           var cell = document.createElement('div');
           var cellBody = document.createElement('div');
           var list = document.createElement('ul');
-          var data = {
+          var data, type;
+          if token == 'am/pm' {
+            data = {
+            aliases: ['AM', 'PM'],
+            digit: 1,
+            increment: 1,
+            list: list,
+            max: 1,
+            min: 0,
+            index: 3,
+            offset: 0
+          };
+          }
+          else if token == 'hour' {
+            data = {
+            digit: 2,
+            increment: 1,
+            list: list,
+            max: 12,
+            min: 1,
+            index: 3,
+            offset: 0
+          };
+          }
+          else {
+           data = {
             digit: token.length,
             increment: Math.abs(Number(increment[type])) || 1,
             list: list,
@@ -1610,6 +1629,8 @@
 
             default:
           }
+          }
+          
 
           setData(cell, DATA_TYPE, type);
           setData(cell, DATA_TOKEN, token);
