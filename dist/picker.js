@@ -904,7 +904,13 @@
     current: function current(type, value) {
       var date = this.date;
       var format = this.format;
+
+      if (type == 'hour' || type == 'am/pm') {
+        return date.getHours();
+      }
+      
       var token = format[type];
+      
 
       switch (token.charAt(0)) {
         case 'Y':
