@@ -1496,6 +1496,7 @@
         this.grid = grid;
         this.cell = null;
         this.format = options.format == 'ampm' ? { tokens: ['hour', 'am/pm'] } : parseFormat(options.format);
+        
         var initialValue = this.getValue();
         var date = this.parseDate(options.date || initialValue);
         this.date = date;
