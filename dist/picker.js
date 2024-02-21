@@ -1542,7 +1542,7 @@
           var cellBody = document.createElement('div');
           var list = document.createElement('ul');
           var data, type;
-          if token == 'am/pm' {
+          if (token == 'am/pm') {
             data = {
             aliases: ['AM', 'PM'],
             digit: 1,
@@ -1553,8 +1553,7 @@
             index: 3,
             offset: 0
           };
-          }
-          else if token == 'hour' {
+          } else if (token == 'hour') {
             data = {
             digit: 2,
             increment: 1,
@@ -1564,8 +1563,7 @@
             index: 3,
             offset: 0
           };
-          }
-          else {
+          } else {
            data = {
             digit: token.length,
             increment: Math.abs(Number(increment[type])) || 1,
@@ -1574,7 +1572,8 @@
             min: -Infinity,
             index: Math.floor((options.rows + 2) / 2),
             offset: 0
-          };
+           };
+          }
 
           switch (token.charAt(0)) {
             case 'Y':
