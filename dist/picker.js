@@ -1573,9 +1573,8 @@
             index: Math.floor((options.rows + 2) / 2),
             offset: 0
            };
-          }
 
-          switch (token.charAt(0)) {
+                      switch (token.charAt(0)) {
             case 'Y':
               if (data.digit === 2) {
                 data.max = 99;
@@ -1628,7 +1627,10 @@
 
             default:
           }
+
           }
+
+          
           
 
           setData(cell, DATA_TYPE, type);
