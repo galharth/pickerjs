@@ -1148,7 +1148,7 @@
         value -= max - min + 1;
       }
 
-      item.textContent = options.translate(type, data.aliases ? data.aliases[value] : addLeadingZero(value + data.offset, token.length));
+      item.textContent = options.translate(type, data.aliases ? data.aliases[value] : (token ? addLeadingZero(value + data.offset, token.length) : value + data.offset));
       setData(item, DATA_VALUE, value);
       list.appendChild(item);
 
