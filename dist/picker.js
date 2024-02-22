@@ -1515,7 +1515,7 @@
           rows += 1;
         }
 
-        options.rows = rows || 5;
+        options.rows = options.format == 'ampm' ? 2 : (rows || 5);
         addClass(grid, "".concat(NAMESPACE, "-").concat(options.rows > 1 ? 'multiple' : 'single'));
 
         if (options.controls) {
